@@ -1,7 +1,7 @@
 module SolusVM
   # SolusVM::Base is the main class for mapping API resources as subclasses.
   class Base
-    VALID_SERVER_TYPES = ["openvz", "xen", "xen hvm"]
+    VALID_SERVER_TYPES = ["openvz", "xen", "xen hvm", "kvm"]
 
     attr_reader :returned_parameters
 
