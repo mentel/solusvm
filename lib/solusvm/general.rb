@@ -9,7 +9,14 @@ module SolusVM
     def templates(type)
       validate_server_type(type) do
         perform_request(action: 'listtemplates', type: type)
-        parse_returned_params_as_list('templates')
+        case type
+        when 'kvm'
+          parse_returned_params_as_list("templateskvm")
+        when 'xen hvm'
+          parse_returned_params_as_list("templateshvm")
+        else
+          parse_returned_params_as_list('templates')
+        end
       end
     end
 
